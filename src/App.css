@@ -4,7 +4,7 @@
 :root {
   --primary-color:linear-gradient(98.37deg, #52cbcd 0.99%, #061a50 100%);
   --secondary-color: linear-gradient(98.37deg, #069084 0.99%, #d0e514 100%);
-  --heading-color: #558675;
+  --heading-color: #111a16;
   --text-color: #6e7074;
   --font-name: "Montserrat", sans-serif;
   --subtitle-font-name: "Island Moments", cursive;
@@ -46,6 +46,10 @@ ul {
   border: none !important;
   border-radius: 50px !important;
   padding: 0.4rem 1.5rem !important;
+}
+.primary__btn:hover{
+  background: var(--primary-color) !important;
+  
 }
 
 .primary__btn a {
