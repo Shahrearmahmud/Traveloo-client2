@@ -1,0 +1,24 @@
+/* about.css */
+
+/* About Section Styles */
+.about {
+    background-color: #f0f0f0;
+    padding: 2rem 0;
+  }
+  
+  .about__title {
+    font-size: 28px;
+    margin-bottom: 1rem;
+  }
+  
+  .about__description {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .about__image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  

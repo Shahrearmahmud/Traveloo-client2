@@ -66,6 +66,11 @@ ul {
   border: none !important;
   font-weight: 500 !important;
 }
+.secondary__btn:hover {
+text-decoration: underline;
+color:rgb(76, 126, 179);
+ font-weight: 600 !important;
+}
 
 .secondary__btn a {
   text-decoration: none;
