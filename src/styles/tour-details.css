@@ -69,7 +69,7 @@
     width: 100%;
     padding: 0.7rem;
     border-radius: 2rem;
-    border: 1px solid rgb(76, 126, 179);
+    border: 1px solid rgb(193, 200, 208);
 }
 .reviews__input input{
 
@@ -124,4 +124,19 @@
 
 .reviews__item span{
     font-weight: 500;
+}
+
+@media only screen and (max-width:768px){
+    .tour__extra-details{
+        flex-wrap: wrap;
+        row-gap: 1rem;
+    }
+
+    .tour__extra-details span {
+        font-size: 0.9rem;
+    }
+
+    .tour__extra-details span i {
+        font-size: 1rem;
+    }
 }

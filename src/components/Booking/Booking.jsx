@@ -1,35 +1,70 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./booking.css";
-
 import { Form, FormGroup, ListGroup, ListGroupItem, Button } from "reactstrap";
-
+import { BASE_URL } from "../../utils/config";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 const Booking = ({ tour, avgRating }) => {
-  const { price, reviews } = tour;
-
+  const { price, reviews, title } = tour;
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
-  const [credentials, setCredentials] = useState({
-    userId: "01",
-    userEmail: "abc@gmail.com",
+  const [booking, setBooking] = useState({
+    userId: user && user._id,
+    userEmail: user && user.email,
+    tourName: title,
     fullName: "",
-    phone: "01625094896",
+    phone: "",
     guestSize: 1,
     bookAt: "",
   });
+
   const handleChange = (e) => {
-    setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+    const { id, value } = e.target;
+    setBooking((prev) => ({
+      ...prev,
+      [id]: id === "guestSize" ? Math.min(Math.max(1, value), 40) : value,
+    }));
   };
 
-  const handleClick = (e) => {
+  const today = new Date().toISOString().split("T")[0];
+
+  const handleClick = async (e) => {
     e.preventDefault();
-    navigate("/thankyou");
+
+    const selectedDate = booking.bookAt;
+
+    if (selectedDate < today) {
+      return alert("Please select a future date for booking.");
+    }
+
+    console.log(booking);
+    navigate("/thankYou");
+    try {
+      if (!user) {
+        return alert("Please sign in");
+      }
+      const res = await fetch(`${BASE_URL}/booking`, {
+        method: "post",
+        headers: {
+          "content-type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(booking),
+      });
+      const result = await res.json();
+      if (!res.ok) {
+        return alert(result.message);
+      }
+    } catch (err) {
+      alert(err.message);
+    }
   };
 
   const serviceFee = 10;
   const totalAmount =
-    Number(price) * Number(credentials.guestSize) + Number(serviceFee);
+    Number(price) * Number(booking.guestSize) + Number(serviceFee);
 
   return (
     <div className="booking">
@@ -37,14 +72,12 @@ const Booking = ({ tour, avgRating }) => {
         <h3>
           ${price} <span>/per person</span>
         </h3>
-
-        <span className="tour__rating d-flex align-items-center ">
-          <i class="ri-star-fill "></i>
+        <span className="tour__rating d-flex align-items-center">
+          <i className="ri-star-fill"></i>
           {avgRating === 0 ? null : avgRating}({reviews?.length})
         </span>
       </div>
 
-      {/*=========================== booking from ===============*/}
       <div className="booking__form">
         <h5> Information</h5>
         <Form className="booking__info-form" onSubmit={handleClick}>
@@ -60,7 +93,7 @@ const Booking = ({ tour, avgRating }) => {
           <FormGroup>
             <input
               type="number"
-              placeholder="phone"
+              placeholder="Phone"
               id="phone"
               required
               onChange={handleChange}
@@ -73,26 +106,28 @@ const Booking = ({ tour, avgRating }) => {
               id="bookAt"
               required
               onChange={handleChange}
+              min={today}
             />
             <input
               type="number"
               placeholder="Guest"
               id="guestSize"
               required
+              value={booking.guestSize}
               onChange={handleChange}
+              min="1"
+              max="40"
             />
           </FormGroup>
         </Form>
       </div>
-      {/*=========================== booking from end ===============*/}
-      {/*=========================== booking bottom  ===============*/}
 
       <div className="booking__bottom">
         <ListGroup>
           <ListGroupItem className="border-0 px-0">
             <h5 className="d-flex align-items-center gap-1">
               ${price}
-              <i class="ri-close-line">1 person</i>
+              <i className="ri-close-line">1 person</i>
             </h5>
             <span>${price}</span>
           </ListGroupItem>
@@ -102,7 +137,6 @@ const Booking = ({ tour, avgRating }) => {
           </ListGroupItem>
           <ListGroupItem className="border-0 px-0 total">
             <h5>Total</h5>
-
             <span>${totalAmount}</span>
           </ListGroupItem>
         </ListGroup>
@@ -111,7 +145,6 @@ const Booking = ({ tour, avgRating }) => {
           Book Now
         </Button>
       </div>
-      {/*=========================== booking bottom end ===============*/}
     </div>
   );
 };

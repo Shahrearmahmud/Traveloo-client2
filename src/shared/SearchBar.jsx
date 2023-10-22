@@ -1,20 +1,43 @@
 import React, { useRef } from "react";
 import "./SearchBar.css";
 import { Col, Form, FormGroup } from "reactstrap";
+import { BASE_URL } from "../utils/config";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const locationRef = useRef("");
   const distanceRef = useRef("");
   const maxGroupSizeRef = useRef("");
+  const navigate = useNavigate();
 
-  const searchHandler = () => {
+  const searchHandler = async () => {
     const location = locationRef.current.value;
     const distance = distanceRef.current.value;
     const maxGroupSize = maxGroupSizeRef.current.value;
 
+    // Ensure that all fields are filled
     if (location === "" || distance === "" || maxGroupSize === "") {
       return alert("All fields are required");
     }
+
+    // Ensure that distance and maxGroupSize are within the desired range
+    if (parseInt(distance) < 0 || parseInt(distance) > 500000000) {
+      return alert("Distance must be between 0 and 40,000 km");
+    }
+    if (parseInt(maxGroupSize) < 0 || parseInt(maxGroupSize) > 40) {
+      return alert("Max People must be between 0 and 40");
+    }
+
+    const res = await fetch(
+      `${BASE_URL}/tours/search/getTourBySearch?city=${location}&distance=${distance}&maxGroupSize=${maxGroupSize}`
+    );
+
+    if (!res.ok) alert("Something went wrong");
+    const result = await res.json();
+    navigate(
+      `/tours/search?city=${location}&distance=${distance}&maxGroupSize=${maxGroupSize}`,
+      { state: result.data }
+    );
   };
 
   return (

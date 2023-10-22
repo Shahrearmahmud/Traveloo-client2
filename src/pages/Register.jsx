@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Container, Row, Col, Form, FormGroup, Button } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/login.css";
-import registerImg from "../assets/images/register.png";
-import userIcon from "../assets/images/user-2.png";
+import { AuthContext } from "../context/AuthContext";
+import { BASE_URL } from "../utils/config";
 
 const Register = () => {
   const [credentials, setCredentials] = useState({
@@ -11,12 +11,33 @@ const Register = () => {
     email: undefined,
     password: undefined,
   });
+
+  const { dispatch } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
+
+    try {
+      const res = await fetch(`${BASE_URL}/auth/register`, {
+        method: "post",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(credentials),
+      });
+
+      const result = await res.json();
+      if (!res.ok) alert(result.message);
+      dispatch({ type: "REGISTER_SUCCESS" });
+      navigate("/login");
+    } catch (err) {
+      alert(err.message);
+    }
   };
   return (
     <section>
@@ -25,12 +46,12 @@ const Register = () => {
           <Col lg="8" className="m-auto">
             <div className="login__container d-flex justify-content-between">
               <div className="login__img">
-                <img src={registerImg} alt="" />
+                <img src="https://i.ibb.co/rQJzrJc/register.png" alt="" />
               </div>
 
               <div className="login__form">
                 <div className="user">
-                  <img src={userIcon} alt="" />
+                  <img src="https://i.ibb.co/6FN3x2n/user-2.png" alt="" />
                   <h2>Register</h2>
                 </div>
                 <Form onSubmit={handleClick}>
