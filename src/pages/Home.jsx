@@ -1,11 +1,7 @@
 import React from "react";
 import "../styles/home.css";
 import { Container, Row, Col } from "reactstrap";
-import heroImg from "../assets/images/1mg2.jpg";
-import heroImg02 from "../assets/images/im4.jpg";
 import heroVideo from "../assets/images/video (1080p).mp4";
-import worldImg from "../assets/images/logo2.png";
-import experienceImg from "../assets/images/experience-2.png";
 import Subtitle from "../shared/Subtitle";
 import SearchBar from "../shared/SearchBar";
 import ServiceList from "../services/ServiceList";
@@ -24,7 +20,7 @@ const Home = () => {
             <Col lg="6">
               <div className="hero__content">
                 <div className="hero__subtitle d-flex align-items-center">
-                  <img src={worldImg} alt="" />
+                  <img src="https://i.ibb.co/kyzCN6H/logo2.png" alt="" />
                   <Subtitle subtitle={" Get ready, get set, and then go.."} />
                 </div>
                 <h1>
@@ -43,17 +39,17 @@ const Home = () => {
             </Col>
             <Col lg="2">
               <div className="hero__img-box mt-5">
-                <img src={heroImg} alt="" />
+                <img src="https://i.ibb.co/Lghqq3s/1mg2.jpg" alt="" />
               </div>
             </Col>
             <Col lg="2">
-              <div className="hero__img-box mt-3">
+              <div className="hero__img-box hero__video-box mt-3">
                 <video src={heroVideo} alt="" controls />
               </div>
             </Col>
             <Col lg="2">
               <div className="hero__img-box">
-                <img src={heroImg02} alt="" />
+                <img src="https://i.ibb.co/bJLWC04/im4.jpg" alt="" />
               </div>
             </Col>
 
@@ -94,7 +90,7 @@ const Home = () => {
           <Row>
             <Col lg="6">
               <div className="experience__img">
-                <img src={experienceImg} alt="" />
+                <img src="https://i.ibb.co/qgVWpMn/experience-2.png" alt="" />
               </div>
             </Col>
             <Col lg="6">

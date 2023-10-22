@@ -10,7 +10,7 @@ import tourImg08 from "../images/t-8.jpg";
 const tours = [
 
   {
-    id: "01",
+    id: "02",
     title: "Bali, Indonesia",
     city: "Indonesia",
     address: "Bali",
@@ -45,7 +45,23 @@ const tours = [
     featured: true,
   },
   {
-    id: "02",
+    id: "06",
+    title: "Cherry Blossoms Spring",
+    city: "Japan",
+    distance: 500,
+    address: "Cherry Blossom",
+    price: 120,
+    maxGroupSize: 8,
+    desc: "this is the description",
+    reviews: [
+
+    ],
+    avgRating: 4.5,
+    photo: tourImg06,
+    featured: false,
+  },
+  {
+    id: "07",
     title: "India, Agra",
     city: "India",
     address: "Agra",
@@ -84,7 +100,7 @@ const tours = [
   },
 
   {
-    id: "04",
+    id: "08",
     title: "Nusa Pendia Bali, Indonesia",
     city: "Indonesia",
     distance: 500,
@@ -118,22 +134,7 @@ const tours = [
     photo: tourImg08,
     featured: false,
   },
-  {
-    id: "06",
-    title: "Cherry Blossoms Spring",
-    city: "Japan",
-    distance: 500,
-    address: "Cherry Blossom",
-    price: 120,
-    maxGroupSize: 8,
-    desc: "this is the description",
-    reviews: [
 
-    ],
-    avgRating: 4.5,
-    photo: tourImg06,
-    featured: false,
-  },
   {
     id: "07",
     title: "Beautiful Sunrise, Thailand",

@@ -8,7 +8,9 @@ const CommonSection = ({ title }) => {
       <Container>
         <Row>
           <Col lg="12">
-            <h1>{title}</h1>
+            <h1>
+              {title} <i class="ri-flight-takeoff-line"></i>
+            </h1>
           </Col>
         </Row>
       </Container>

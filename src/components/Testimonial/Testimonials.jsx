@@ -1,8 +1,5 @@
 import React from "react";
 import Slider from "react-slick";
-import ava01 from "../../assets/images/av-1.jpeg";
-import ava02 from "../../assets/images/av-2.jpg";
-import ava03 from "../../assets/images/av-3.jpeg";
 
 const Testimonials = () => {
   const settings = {
@@ -45,10 +42,32 @@ const Testimonials = () => {
           looking to plan their next getaway.""
         </p>
         <div className="d-flex align-items-center gap-4 mt-3">
-          <img src={ava01} className="w-25 h-25 rounded-2" alt="" />
+          <img
+            src="https://i.ibb.co/JF0GfK5/av-1.jpg"
+            className="w-25 h-25 rounded-2"
+            alt=""
+          />
 
           <div>
             <h6 className="mb-0 mt-3">Tom Cruise</h6>
+            <p>Customer</p>
+          </div>
+        </div>
+      </div>
+      <div className="testimonial py-4 px-3">
+        <p>
+          "Ami o number one ,onader service o number one ..Hahahaaa fantastic
+          ,fabulous... "
+        </p>
+        <div className="d-flex align-items-center gap-4 mt-3">
+          <img
+            src="https://i.ibb.co/85Kd7T4/shakib-khan.jpg"
+            className="w-25 h-25 rounded-2"
+            alt=""
+          />
+
+          <div>
+            <h6 className="mb-0 mt-3">Shakib khan</h6>
             <p>Customer</p>
           </div>
         </div>
@@ -62,7 +81,11 @@ const Testimonials = () => {
           fingertips. Thank you for making my vacations unforgettable!"
         </p>
         <div className="d-flex align-items-center gap-4 mt-3">
-          <img src={ava02} className="w-25 h-25 rounded-2" alt="" />
+          <img
+            src="https://i.ibb.co/LJZj5LR/av-2.jpg"
+            className="w-25 h-25 rounded-2"
+            alt=""
+          />
 
           <div>
             <h6 className="mb-0 mt-3">Dwayne Johnson</h6>
@@ -80,9 +103,73 @@ const Testimonials = () => {
           to use this website for all my future trips."
         </p>
         <div className="d-flex align-items-center gap-4 mt-3">
-          <img src={ava03} className="w-25 h-25 rounded-2" alt="" />
+          <img
+            src="https://i.ibb.co/4pGHNTs/av-3.jpg"
+            className="w-25 h-25 rounded-2"
+            alt=""
+          />
           <div>
             <h6 className="mb-0 mt-3">Gal Gadot</h6>
+            <p>Customer</p>
+          </div>
+        </div>
+      </div>
+      <div className="testimonial py-4 px-3">
+        <p>
+          "Five stars aren't enough to express our gratitude. Their experience
+          and expertise shone through in every aspect of our trip. We felt safe,
+          well-cared for, and immersed in the beauty of our destination. An
+          unforgettable travel partner!"
+        </p>
+        <div className="d-flex align-items-center gap-4 mt-3">
+          <img
+            src="https://i.ibb.co/p4ss590/Sharukh.webp"
+            className="w-25 h-25 rounded-2"
+            alt=""
+          />
+
+          <div>
+            <h6 className="mb-0 mt-3">sharukh khan</h6>
+            <p>Customer</p>
+          </div>
+        </div>
+      </div>
+      <div className="testimonial py-4 px-3">
+        <p>
+          "I can't thank this team enough for making our trip memorable. Their
+          in-depth knowledge and seamless planning ensured we got the most out
+          of our adventure. We felt like explorers on a carefully crafted
+          journey."
+        </p>
+        <div className="d-flex align-items-center gap-4 mt-3">
+          <img
+            src="https://i.ibb.co/LvhzBMg/virat.webp"
+            className="w-25 h-25 rounded-2"
+            alt=""
+          />
+
+          <div>
+            <h6 className="mb-0 mt-3">virat kohli</h6>
+            <p>Customer</p>
+          </div>
+        </div>
+      </div>
+      <div className="testimonial py-4 px-3">
+        <p>
+          "Exceptional service! From the moment we booked our trip to the last
+          day of our vacation, we were blown away by the professionalism and
+          attention to detail. Our travel experience was nothing short of
+          extraordinary."
+        </p>
+        <div className="d-flex align-items-center gap-4 mt-3">
+          <img
+            src="https://i.ibb.co/Sc9gTD3/priti.jpg"
+            className="w-25 h-25 rounded-2"
+            alt=""
+          />
+
+          <div>
+            <h6 className="mb-0 mt-3">priti zinta</h6>
             <p>Customer</p>
           </div>
         </div>

@@ -17,3 +17,7 @@
     background: var(--secondary-color);
     color: #fff  !important;
 }
+
+.CommonSection title{
+    color: var(--primary-color);
+}

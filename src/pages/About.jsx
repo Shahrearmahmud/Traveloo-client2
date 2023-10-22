@@ -1,7 +1,5 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
-
-import aboutImg from "./../assets/images/about.png";
 import "../styles/about.css";
 
 const About = () => {
@@ -19,7 +17,7 @@ const About = () => {
           </Col>
           <Col lg="6">
             <div className="about__image">
-              <img src={aboutImg} alt="About Us" />
+              <img src="https://i.ibb.co/T4vwKs8/about.png" alt="About Us" />
             </div>
           </Col>
         </Row>

@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/logo3.png";
 import "./footer.css";
 
 const quick__links = [
@@ -41,7 +40,7 @@ const Footer = () => {
         <Row>
           <Col lg="3">
             <div className="logo">
-              <img src={logo} alt="" />
+              <img src="https://i.ibb.co/ckm0tDp/logo3.png" alt="" />
               <p>
                 Explore our links, stay connected, and find important legal
                 information .
