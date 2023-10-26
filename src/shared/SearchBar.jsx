@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const locationRef = useRef("");
-  const distanceRef = useRef("");
-  const maxGroupSizeRef = useRef("");
+  const distanceRef = useRef(0);
+  const maxGroupSizeRef = useRef(0);
   const navigate = useNavigate();
 
   const searchHandler = async () => {
@@ -20,7 +20,7 @@ const SearchBar = () => {
       return alert("All fields are required");
     }
 
-    // Ensure that distance and maxGroupSize are within the desired range
+    // // Ensure that distance and maxGroupSize are within the desired range
     if (parseInt(distance) < 0 || parseInt(distance) > 500000000) {
       return alert("Distance must be between 0 and 40,000 km");
     }
